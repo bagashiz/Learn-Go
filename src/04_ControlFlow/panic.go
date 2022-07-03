@@ -9,7 +9,7 @@ func main() {
 	//* syntax:
 	// panic(value)
 	//* panic is used to stop the execution of a function and cause a program to exit.
-	
+
 	//a, b := 1, 0
 	//ans := a / b
 	//fmt.Println(ans) //! panic: runtime error: integer divide by zero

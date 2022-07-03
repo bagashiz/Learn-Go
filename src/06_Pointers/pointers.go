@@ -33,14 +33,14 @@ func main() {
 	type myStrunct struct {
 		foo int
 	}
-	
-	var ms *myStrunct // ms is a pointer to a myStrunct
+
+	var ms *myStrunct         // ms is a pointer to a myStrunct
 	ms = &myStrunct{foo: 420} // ms points to a myStrunct with a foo value of 420
-	fmt.Println(ms) // prints &{420} because ms is holding the address of a myStrunct object with a foo value of 420
+	fmt.Println(ms)           // prints &{420} because ms is holding the address of a myStrunct object with a foo value of 420
 
 	//* new() function allocates memory for a new object and returns a pointer to it
 	var ms2 *myStrunct = new(myStrunct) // ms2 is a pointer to a myStrunct
-	fmt.Println(ms2) // prints &{0} because ms2 is holding the address of a myStrunct object with a initial foo value of 0
+	fmt.Println(ms2)                    // prints &{0} because ms2 is holding the address of a myStrunct object with a initial foo value of 0
 
 	//* nil value is a pointer to nothing
 	var ms3 *myStrunct
@@ -50,16 +50,16 @@ func main() {
 
 	//* Assign a value to a pointer
 	var ms4 *myStrunct = new(myStrunct)
-	fmt.Println(ms4) // prints &{0} because ms4 is holding the address of a myStrunct object with a initial foo value of 0
-	(*ms4).foo = 420 // (*ms4) to dereference the pointer and assign the value of foo to 420
-	fmt.Println(ms4) // prints &{420} because ms4 is holding the address of a myStrunct object with a foo value of 420
+	fmt.Println(ms4)        // prints &{0} because ms4 is holding the address of a myStrunct object with a initial foo value of 0
+	(*ms4).foo = 420        // (*ms4) to dereference the pointer and assign the value of foo to 420
+	fmt.Println(ms4)        // prints &{420} because ms4 is holding the address of a myStrunct object with a foo value of 420
 	fmt.Println((*ms4).foo) // prints 420 because ms4 is dereferenced and the foo value is returned
-	
+
 	//* But you don't have to dereference a pointer to assign a value to it
 	var ms5 *myStrunct = new(myStrunct)
-	fmt.Println(ms5) // prints &{0} because ms5 is holding the address of a myStrunct object with a initial foo value of 0
-	ms5.foo = 69 // ms5 is dereferenced and the foo value is assigned to 420
-	fmt.Println(ms5) // prints &{69} because ms5 is holding the address of a myStrunct object with a foo value of 420
+	fmt.Println(ms5)     // prints &{0} because ms5 is holding the address of a myStrunct object with a initial foo value of 0
+	ms5.foo = 69         // ms5 is dereferenced and the foo value is assigned to 420
+	fmt.Println(ms5)     // prints &{69} because ms5 is holding the address of a myStrunct object with a foo value of 420
 	fmt.Println(ms5.foo) // prints 69 because ms5 is dereferenced and the foo value is returned
 
 	//* NOTE: maps and slices are passed by reference

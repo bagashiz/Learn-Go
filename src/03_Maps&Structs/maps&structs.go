@@ -97,27 +97,30 @@ func main() {
 	}
 	doctor1 := doctor{
 		number: 1,
-		name: "Bob", 
+		name:   "Bob",
 		companions: []string{
-			"Alice", 
-			"Bob", 
+			"Alice",
+			"Bob",
 			"Charlie",
 		},
 	}
-	fmt.Println(doctor1) // prints {1 Bob [Alice Bob Charlie]}
-	fmt.Println(doctor1.number) // prints 1
-	fmt.Println(doctor1.name) // prints Bob
-	fmt.Println(doctor1.companions) // prints [Alice Bob Charlie]
+	fmt.Println(doctor1)               // prints {1 Bob [Alice Bob Charlie]}
+	fmt.Println(doctor1.number)        // prints 1
+	fmt.Println(doctor1.name)          // prints Bob
+	fmt.Println(doctor1.companions)    // prints [Alice Bob Charlie]
 	fmt.Println(doctor1.companions[1]) // prints Alice
 
 	//* Anonymous struct
-	doctor2 := struct {name string; age int}{name: "Andy", age: 20}
+	doctor2 := struct {
+		name string
+		age  int
+	}{name: "Andy", age: 20}
 	fmt.Println(doctor2) // prints {Andy 20}
 
 	//* Structs are value types (passed by value)
 	copyDoctor := doctor1
 	copyDoctor.number = 2
-	fmt.Println(doctor1) // prints {1 Bob [Alice Bob Charlie]}
+	fmt.Println(doctor1)    // prints {1 Bob [Alice Bob Charlie]}
 	fmt.Println(copyDoctor) // prints {2 Bob [Alice Bob Charlie]}
 	//* Use pointer to struct to modify struct
 	copyDoctor2 := &doctor1
@@ -126,12 +129,12 @@ func main() {
 
 	//* Embedded structs (useful for imitating inheritance)
 	type animal struct {
-		name string
+		name   string
 		origin string
 	}
 
 	type dog struct {
-		animal // embed animal struct to dog struct
+		animal  // embed animal struct to dog struct
 		isLoyal bool
 	}
 
@@ -140,9 +143,9 @@ func main() {
 	shiba.origin = "Japan"
 	shiba.isLoyal = true
 	fmt.Println(shiba) // prints {{Shiba Japan} true}
-	
+
 	pitbull := dog{
-		animal: animal{name: "Pitbull", origin: "Brazil"},
+		animal:  animal{name: "Pitbull", origin: "Brazil"},
 		isLoyal: false,
 	}
 	fmt.Println(pitbull) // prints {{Pitbull Brazil} false}
@@ -159,5 +162,5 @@ func main() {
 //* Tags (used to specify field names)
 type Person struct {
 	Name string
-	Age int `required_min:"18"`      // required_min is a tag
+	Age  int `required_min:"18"` // required_min is a tag
 }

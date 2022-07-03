@@ -71,7 +71,7 @@ func main() {
 	// 	default:
 	// 		block of code
 	// }
-	
+
 	//* initializer syntax:
 	switch state := "Florida"; state {
 	case "California":
@@ -83,7 +83,7 @@ func main() {
 	default:
 		fmt.Println("Unknown state")
 	} // prints Florida
-	
+
 	//* switch statement with multiple cases
 	switch state := "Florida"; state {
 	case "California", "Texas": // comma-separated list of cases
@@ -93,7 +93,6 @@ func main() {
 	default:
 		fmt.Println("Unknown state")
 	} // prints East coast
-
 
 	//* Tag less switch statement
 	var i = 10

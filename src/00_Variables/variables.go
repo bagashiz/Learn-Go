@@ -35,11 +35,11 @@ func main() {
 	fmt.Printf("%v, %T\n", n, n) // print 69 instead 69.42
 
 	var o string // default to ""
-	
+
 	//! o = string(i)
 	//! fmt.Printf("%v, %T\n", o, o)
 	//! print ASCII number 42 (*) if not using strconv package
-	
+
 	o = strconv.Itoa(i)          // Itoa() = int to string
 	fmt.Printf("%v, %T\n", o, o) // Print "42" instead 42
 
