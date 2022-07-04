@@ -27,3 +27,11 @@ type greeter struct {
 func (g greeter) greet() { // (g greeter) means that the receiver variable is g with the type greeter
 	fmt.Println(g.greeting, g.name)
 }
+
+//* Create setter and getter methods for the greeter struct
+func (g *greeter) setGreeting(greeting string) { // use pointer to change the value of the greeting variable
+	g.greeting = greeting
+}
+func (g *greeter) setName(name string) { // use pointer to change the value of the name variable
+	g.name = name
+}
