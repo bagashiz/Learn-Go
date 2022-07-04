@@ -18,6 +18,12 @@ type greeter struct {
 }
 
 //* Method that is associated with the greeter struct
-func (g greeter) greet() { // (g greeter) means that the receiver variable is g
+//* syntax
+// func (receiver_variable_name) function_name(parameters) return_type {
+//		function_body
+// }
+//* receiver_variable_name is the name of the variable that will be used to call the method
+
+func (g greeter) greet() { // (g greeter) means that the receiver variable is g with the type greeter
 	fmt.Println(g.greeting, g.name)
 }
