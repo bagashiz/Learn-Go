@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 //* Slices are arrays that can be resized
 //* Slices are passed by reference
@@ -55,4 +58,20 @@ func main() {
 	fmt.Printf("Slice length after: %v\n", len(slc4))   // print 4
 	fmt.Printf("Slice capacity after: %v\n", cap(slc4)) // print 4
 	//* go created a new slice with added value and with length 4 and capacity 4
+
+	//* sort.Sort(slice) function to sort any slice
+	//* sort.Ints(slice) function to sort int slice
+	//* sort.Strings(slice) function to sort string slice
+	//* sort.Float64s(slice) function to sort float64 slice
+	slc5 := []int{3, 2, 1}
+	fmt.Println(slc5) // print [3 2 1]
+	sort.Ints(slc5)
+	fmt.Println(slc5) // print [1 2 3]
+
+	//* Use copy function to copy slice
+	//* copy(dest, src) function to copy slice
+	slc6 := []int{1, 2, 3, 4, 5}
+	slc7 := make([]int, len(slc6))
+	copy(slc7, slc6)  // copy slc6 to slc7
+	fmt.Println(slc7) // print [1 2 3 4 5]
 }
