@@ -87,6 +87,16 @@ func main() {
 	t := reflect.TypeOf(Person{})
 	field, _ := t.FieldByName("Age")
 	fmt.Println(field.Tag) // prints required_min="18"
+
+	lynx := Cat{
+		Name: "Lynx",
+		Age:  10,
+	}
+	fmt.Println(lynx.printCatInfo()) // prints Lynx is 10 years old
+
+	//* Modifying structs
+	lynx.setName("Lion")             // sets the name of the struct to Lion
+	fmt.Println(lynx.printCatInfo()) // prints Lion is 10 years old
 }
 
 //* Package-level struct
@@ -94,4 +104,22 @@ func main() {
 type Person struct {
 	Name string
 	Age  int `required_min:"18"` // required_min is a tag
+}
+
+//* Receiver struct
+//* Receiver is a struct that is used to access fields in a struct
+//* Receiver is a pointer to the value of the struct
+type Cat struct {
+	Name string
+	Age  int
+}
+
+//* Functions to get struct values
+func (s *Cat) printCatInfo() string { // s is a receiver to the struct
+	return fmt.Sprintf("%s is %d years old", s.Name, s.Age)
+}
+
+//* Functions to modify structs
+func (s *Cat) setName(name string) {
+	s.Name = name
 }
